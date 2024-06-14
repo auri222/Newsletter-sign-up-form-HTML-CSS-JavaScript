@@ -1,0 +1,304 @@
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  src: url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+:root {
+  --DarkSlateGrey: hsl(234, 29%, 20%);
+  --CharcoalGrey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: var(--DarkSlateGrey);
+}
+
+body {
+  min-height: 100vh;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul>li {
+  margin-bottom: 0.6rem;
+  display: flex;
+  gap: 1rem;
+}
+
+ul>li img {
+  align-self: flex-start;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 2.2rem);
+}
+
+p {
+  font-weight: 400;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 1.3rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  min-height: calc(100vh - 54.4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--CharcoalGrey);
+}
+
+.f__box {
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2rem;
+  margin: 0 1rem;
+}
+
+.f__imgWrapper {
+  padding: 1.2rem 1.2rem 1.2rem 0;
+}
+
+/* https://stackoverflow.com/questions/41774646/image-is-not-resizing-in-a-flexbox-layout */
+.f__imgWrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  display: block;
+}
+
+
+.f__wrapper {
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.f__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.f__intro p,
+.f__intro span {
+  font-size: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  margin-bottom: 1.175rem;
+  position: relative;
+}
+
+.form-control label,
+.form-control span {
+  font-size: 0.725rem;
+  font-weight: 700;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.form-control>span {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.form-control input {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--Grey);
+  border-radius: 5px;
+}
+
+.errorMsg {
+  color: red;
+}
+
+.successMsg {
+  color: rgb(7, 168, 28);
+}
+
+input.error {
+  color: red;
+  border: 2px solid red;
+  background-color: rgb(255, 223, 223);
+}
+
+input.success {
+  color: rgb(7, 168, 28);
+  border: 2px solid rgb(7, 168, 28);
+}
+
+button {
+  /* display: block; */
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--White);
+  font-weight: 700;
+  background: var(--DarkSlateGrey);
+  cursor: pointer;
+}
+
+#dialog {
+  max-width: 360px;
+  padding: 1.5rem;
+  background-color: var(--White);
+  border-radius: 1rem;
+  position: absolute;
+  left: auto;
+  right: auto;
+}
+
+#dialog>* {
+  margin-bottom: 1.5rem;
+}
+
+#dialog span {
+  font-weight: 700;
+}
+
+#dialog img {
+  width: 48px;
+  height: 48px;
+}
+
+#dialog button:hover,
+#dialog button:focus,
+#dialog button:active {
+  background: rgb(255, 30, 98);
+  background: linear-gradient(120deg, rgba(255, 30, 98, 1) 20%, rgba(255, 102, 36, 0.9837184873949579) 63%, rgba(255, 99, 71, 1) 100%);
+  box-shadow: 5px 5px 25px 8px rgb(255, 218, 211);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .f__wrapper {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    align-items: flex-start;
+  }
+
+  .attribution {
+    background-color: var(--CharcoalGrey);
+    color: #fff;
+  }
+
+  .attribution a {
+    color: tomato;
+  }
+
+  .f__box {
+    max-width: 375px;
+    flex-direction: column-reverse;
+    border-radius: 0;
+  }
+
+  .f__imgWrapper {
+    padding: 0;
+  }
+
+  .f__imgWrapper img {
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  #dialog {
+    height: calc(100% - 54.4px);
+    top: 0;
+    bottom: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #dialog > img {
+    margin-top: 5rem;
+  }
+
+  #dialog > button {
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    align-items: flex-start;
+    background-color: var(--White);
+  }
+
+  .attribution {
+    background-color: var(--DarkSlateGrey);
+    color: #fff;
+  }
+
+  .attribution a {
+    color: tomato;
+  }
+
+  .f__box {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .f__imgWrapper {
+    width: 100%;
+  }
+
+  #dialog {
+    width: 100%;
+    padding: 1rem;
+  }
+}
